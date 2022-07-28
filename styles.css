@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&family=Roboto&display=swap');
+
+:root {
+    --font-roboto: 'Roboto', sans-serif;
+    --font-edu-vic: 'Edu VIC WA NT Beginner', cursive;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-roboto);
+}
+
+header {
+    font-family: var(--font-edu-vic);
+    text-align: center;
+    font-size: 1.7em;
+    padding: 10px 0;
+}
+
+main {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-container {
+    max-width: 25em;
+    min-height: 32em;
+    border-radius: 1em;
+    background-color: rgb(36, 34, 34);
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    max-width: 23em;
+    min-height: 6em;
+    background-color: wheat;
+    border-radius: 1em;
+    margin: 15px 15px 0 15px;
+}
+
+.buttons-container {
+    min-height: 26em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1em 1em;
+}
+
+button {
+    min-width: 78px;
+    max-height: 5.3em;
+    margin: 5px 7px;
+    border-radius: 50%;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+button > div {
+    font-size: 23px;  
+    font-weight: 500;
+}
+
+button.two-spaces {
+    min-width: 170px;
+    border-radius: 50%;
+}
