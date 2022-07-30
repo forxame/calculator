@@ -43,11 +43,26 @@ main {
 }
 
 .screen {
-    max-width: 23em;
-    min-height: 6em;
+    max-width: 500px;
+    min-height: 100px;
     background-color: wheat;
     border-radius: 1em;
     margin: 15px 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.screen-child-one {
+    margin-top: 15px;
+    margin-left: 2em;
+}
+
+.screen-child-two {
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: 2em;
 }
 
 .buttons-container {
@@ -68,6 +83,14 @@ button {
     justify-content: center;
     align-items: center;
     border: none;
+}
+
+button:hover {
+    background-color: burlywood;
+}
+
+button:active {
+    background-color: rgb(172, 137, 73);;
 }
 
 button > div {
