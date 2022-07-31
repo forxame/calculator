@@ -8,34 +8,55 @@ const num2Text = document.getElementById("num2");
 const resultText = document.getElementById("result");
 const clearBtn = document.getElementById("clear");
 const screen = document.getElementById("screen");
+const plusMinusBtn = document.getElementById("plus-minus");
+const percentageBtn = document.getElementById("percentage");
 let num1 = "";
 let num2 = "";
 let operation = "";
+let result;
+let operationCount = 0;
 
 numbers.forEach(num => num.addEventListener("click", () => {
     if (operation.length == 0) {       
         num1Text.textContent += num.getAttribute("data-number");
-        num1 += num.getAttribute("data-number");
+        num1 = parseFloat(num1Text.textContent);
     }
     
     if (operation.length > 0) {        
         num2Text.textContent += num.getAttribute("data-number");
-        num2 += num.getAttribute("data-number");
+        num2 = parseFloat(num2Text.textContent);
     }
     
 }))
 
 operations.forEach(opt => opt.addEventListener("click", () => {
+    if (operationCount > 0) {
+        clear();
+        num1 = result;
+        num1Text.textContent = result;
+    }
     operationText.textContent = opt.getAttribute("data-operation");
     operation = opt.getAttribute("data-operation");
 }))
 
 equalBtn.addEventListener("click", () => {
+    operationCount++;
     equalText.textContent = "=";
-    resultText.textContent = operate(parseFloat(num1), parseFloat(num2), operation);
+    result = operate(num1, num2, operation);
+    resultText.textContent = result;
 })
 
-clearBtn.addEventListener("click", () => {
+plusMinusBtn.addEventListener("click", () => {
+        num1 = -num1;
+        num1Text.textContent = num1;
+});
+
+percentageBtn.addEventListener("click", () => {
+   num1 /= 100;
+   num1Text.textContent = num1;
+})
+
+function clear() {
     num1 = "";
     num1Text.textContent = "";
     num2 = "";
@@ -44,7 +65,13 @@ clearBtn.addEventListener("click", () => {
     operationText.textContent = "";
     equalText.textContent = "";
     resultText.textContent = "";
-})
+}
+
+clearBtn.addEventListener("click", () => {
+    clear();
+    operationCount = 0;
+    result = 0;
+});
 
 function add(a, b) {
     return a + b;
